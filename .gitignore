@@ -1,6 +1,7 @@
 # Miscellaneous
 *.class
 *.apk
+*.jks
 *.lock
 *.log
 *.pyc

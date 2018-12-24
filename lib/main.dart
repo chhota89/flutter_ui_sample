@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutterui_hiretalent/stylish_dialog.dart';
+import 'package:flutterui_hiretalent/custom_painer.dart';
 
 void main() => runApp(MyApp());
 
@@ -10,7 +10,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter Demo',
       debugShowCheckedModeBanner: false,
-      home: StylishDialogPage(),
+      home: CustomPainerPage(),
     );
   }
 }
