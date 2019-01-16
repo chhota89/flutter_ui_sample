@@ -35,6 +35,7 @@ class TopContainer extends StatefulWidget {
 
 class _TopContainerState extends State<TopContainer> {
   var selectedLocationIndex = 0;
+  bool isFlightSelected = true;
   @override
   Widget build(BuildContext context) {
     return Stack(
@@ -101,12 +102,120 @@ class _TopContainerState extends State<TopContainer> {
                       )
                     ],
                   ),
+                ),
+                SizedBox(height: 24.0),
+                Text("Where whould\nYou want to go?",
+                    textAlign: TextAlign.center,
+                    style: TextStyle(
+                        fontSize: 24.0,
+                        color: Colors.white,
+                        fontFamily: 'Quicksand')),
+                SizedBox(height: 30.0),
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 32.0),
+                  child: Material(
+                    elevation: 5.0,
+                    borderRadius: BorderRadius.circular(30.0),
+                    child: TextField(
+                      style: TextStyle(
+                          fontSize: 16.0,
+                          color: Colors.black,
+                          fontFamily: 'Quicksand'),
+                      controller: TextEditingController(text: locations[0]),
+                      cursorColor: secondColor,
+                      decoration: InputDecoration(
+                          suffixIcon: Material(
+                            elevation: 3.0,
+                            borderRadius: BorderRadius.circular(30.0),
+                            child: IconButton(
+                                icon: Icon(
+                                  Icons.search,
+                                  color: Colors.black,
+                                ),
+                                onPressed: () {}),
+                          ),
+                          border: InputBorder.none,
+                          contentPadding: EdgeInsets.symmetric(
+                              horizontal: 32.0, vertical: 15.0)),
+                    ),
+                  ),
+                ),
+                SizedBox(height: 26),
+                Row(
+                  mainAxisSize: MainAxisSize.min,
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: <Widget>[
+                    InkWell(
+                      onTap: () {
+                        setState(() {
+                          isFlightSelected = true;
+                        });
+                      },
+                      child: ChoiceChip(
+                          iconData: Icons.flight_takeoff,
+                          text: "Flight",
+                          isSelected: isFlightSelected),
+                    ),
+                    SizedBox(width: 20.0),
+                    InkWell(
+                      onTap: () {
+                        setState(() {
+                          isFlightSelected = false;
+                        });
+                      },
+                      child: ChoiceChip(
+                          iconData: Icons.hotel,
+                          text: "Hotel",
+                          isSelected: !isFlightSelected),
+                    )
+                  ],
                 )
               ],
             ),
           ),
         )
       ],
+    );
+  }
+}
+
+class ChoiceChip extends StatefulWidget {
+  final IconData iconData;
+  final String text;
+  final isSelected;
+
+  const ChoiceChip({this.iconData, this.text, this.isSelected});
+
+  @override
+  _ChoiceChipState createState() => _ChoiceChipState();
+}
+
+class _ChoiceChipState extends State<ChoiceChip> {
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      padding: EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
+      decoration: widget.isSelected
+          ? BoxDecoration(
+              color: Colors.white.withOpacity(0.3),
+              borderRadius: BorderRadius.circular(20.0))
+          : null,
+      child: Row(
+        mainAxisSize: MainAxisSize.min,
+        children: <Widget>[
+          Icon(
+            widget.iconData,
+            size: 20,
+            color: Colors.white,
+          ),
+          SizedBox(width: 8.0),
+          Text(
+            widget.text,
+            style: TextStyle(
+                fontSize: 16.0, color: Colors.white, fontFamily: 'Quicksand'),
+          )
+        ],
+      ),
     );
   }
 }

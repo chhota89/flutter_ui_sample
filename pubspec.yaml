@@ -19,6 +19,8 @@ dependencies:
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^0.1.2
+  carousel_pro: 0.0.13
+  flutter_staggered_grid_view: "^0.2.7"
 
 dev_dependencies:
   flutter_test:
@@ -44,6 +46,8 @@ flutter:
     - assets/shopping_cart.png
     - assets/stores.png
     - assets/wallet.png
+    - assets/app_banner1.jpg
+    - assets/app_banner2.jpg
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.io/assets-and-images/#resolution-aware.

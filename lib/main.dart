@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutterui_hiretalent/custom_painer.dart';
+import 'package:flutterui_hiretalent/shoppingapp/row_chops_home.dart';
 
 void main() => runApp(MyApp());
 
@@ -10,7 +10,15 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter Demo',
       debugShowCheckedModeBanner: false,
-      home: CustomPainerPage(),
+      home: RawChopsHomePage(),
+//      home: HireTalentPage(),
     );
   }
 }
+
+//decoration: BoxDecoration(
+//color: status == 'Away' ? Colors.green : Colors.grey,
+//borderRadius: BorderRadius.only(
+//bottomLeft: Radius.circular(10.0),
+//bottomRight: Radius.circular(10.0),
+//)
